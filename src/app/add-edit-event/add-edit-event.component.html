@@ -1,0 +1,56 @@
+<div role="document" class="modal-dialog">
+  <form [formGroup]="eventForm" (ngSubmit)="submitForm(eventForm.value)">
+  <div class="modal-content">
+    <div class="modal-header">
+      <ng-container *ngIf="!editMode">
+        <h4>Add</h4>
+      </ng-container>
+      <ng-container *ngIf="editMode">
+         <h4>Edit</h4>
+      </ng-container>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+     
+
+        <div>
+          <label for="name">Name : </label>
+          <input class="form-control" #name type="text" formControlName="name" placeholder="Input Revenue Name" />
+        </div>
+
+        <div>
+          <label for="name">Type : </label>
+          <select class="form-control" formControlName="type" >
+            <option  [value]="'Revenue'">Revenue</option>
+            <option  [value]="'Expenses'">Expenses</option>
+          </select>
+        </div>
+
+        <div>
+
+          <label for="value">Value: </label>
+          <input class="form-control" #name type="number" formControlName="value" placeholder="Input Revenue Value" />
+        </div>
+
+        <div>
+          <label for="description">Description : </label>
+          <input class="form-control" #description type="text" formControlName="description"
+            placeholder="Input Revenue Description" />
+        </div>
+
+        <div>
+          <label for="dateEvent">Date: </label>
+          <input class="form-control" #dateEvent type="date" formControlName="dateEvent" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success btnstyle" type="submit"> Save </button>
+      <button type="button" class="btn btn-danger btnstyle" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+  </div>
+</form>
+</div>
